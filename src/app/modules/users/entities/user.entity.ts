@@ -8,9 +8,10 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
-
 import { Role } from '../../roles/entities/role.entity';
 import { Program } from 'src/app/modules/programs/entities/program.entity';
+import { NotificationRecipients } from '../../notification/entities/notificationRecipients.entity';
+import { Notification } from '../../notification/entities/notifications.entity';
 
 @Entity()
 export class User {
@@ -62,4 +63,10 @@ export class User {
 
   @OneToMany(() => Program, (program) => program.user)
   programs: Program[];
+
+  @OneToMany(() => NotificationRecipients, (recipient) => recipient.user)
+  notifications: NotificationRecipients[];
+
+  @OneToMany(() => Notification, (notification) => notification.sender)
+  sentNotifications: Notification[];
 }

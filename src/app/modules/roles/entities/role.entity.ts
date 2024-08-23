@@ -1,5 +1,14 @@
-import { Column, CreateDateColumn, Entity, ManyToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+  OneToMany
+} from 'typeorm';
 import { User } from '../../users/entities/user.entity';
+import { NotificationRecipients } from '../../notification/entities/notificationRecipients.entity';
 
 @Entity()
 export class Role {
@@ -17,4 +26,7 @@ export class Role {
 
   @ManyToMany(() => User, (user) => user.roles)
   users: User[];
+
+  @OneToMany(() => NotificationRecipients, (recipient) => recipient.role)
+  roleNotifications: NotificationRecipients[];
 }
