@@ -21,6 +21,7 @@ export class RolesController {
     return this.rolesService.findAll();
   }
 
+  // roles/1
   @Get(':id')
   findOne(@Param('id') id: string): Promise<{ data: Role }> {
     return this.rolesService.findOne(+id);

@@ -15,6 +15,7 @@ import { UsersModule } from './modules/users/users.module';
 import { DatabaseModule } from './shared/modules/database/database.module';
 import { EmailModule } from './shared/modules/email/email.module';
 import { AuthGuard } from './modules/auth/guards/auth.guard';
+import { NotificationModule } from './modules/notification/notification.module';
 
 @Module({
   imports: [
@@ -34,7 +35,8 @@ import { AuthGuard } from './modules/auth/guards/auth.guard';
     ProgramsModule,
     AttachmentsModule,
     RequirementsModule,
-    TypesModule
+    TypesModule,
+    NotificationModule
   ],
   providers: [
     {
